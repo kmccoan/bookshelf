@@ -1,9 +1,30 @@
-// 🐨 you'll need to import react and createRoot from react-dom up here
+import React, {Fragment} from 'react';
+import {createRoot} from "react-dom/client";
+import {Logo} from "./components/logo";
+import '@reach/dialog/styles.css'
 
-// 🐨 you'll also need to import the Logo component from './components/logo'
+const App = () => {
+    function handleLogin() {
+        alert("Login was clicked")
+    }
 
-// 🐨 create an App component here and render the logo, the title ("Bookshelf"), a login button, and a register button.
-// 🐨 for fun, you can add event handlers for both buttons to alert that the button was clicked
+    function handleRegister() {
+        alert("Register was clicked")
+    }
 
-// 🐨 use createRoot to render the <App /> to the root element
-// 💰 find the root element with: document.getElementById('root')
+    return <Fragment>
+        <Logo></Logo>
+        <h1>Bookshelf</h1>
+        <div>
+            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleRegister}>Register</button>
+        </div>
+
+    </Fragment>
+};
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<React.StrictMode>
+    <App/>
+</React.StrictMode>);
